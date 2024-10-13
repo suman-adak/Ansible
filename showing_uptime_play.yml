@@ -1,0 +1,6 @@
+- 
+  name: Showing Uptime Playbook 
+  hosts: servers 
+  tasks: 
+    - name: Showing Uptime 
+      command: uptime
