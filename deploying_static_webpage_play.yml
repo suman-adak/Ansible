@@ -1,1 +1,19 @@
-- name: Install Nginx and start it hosts: servers become: yes tasks: I -name: Install Nginx apt: name: nginx state: latest -name: Start Nginx service: name: nginx state: started enabled: yes
+- 
+  name: Installing Nginx and starting it 
+  hosts: servers 
+  become: yes 
+  tasks: 
+    - name: Installing Nginx 
+      apt: 
+        name: nginx 
+        state: latest 
+    - name: Starting Nginx 
+      service: 
+        name: nginx 
+        state: started 
+        enabled: yes
+
+    - name: Deploying static webpage
+      copy:
+        src: index.html
+        dest: /var/www/html
